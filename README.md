@@ -13,10 +13,8 @@ A modern, responsive React application for interacting with the STK staking smar
 - **Emergency Withdraw**: Emergency withdrawal option with penalty
 
 ### User Interface
-- **Real-time Notifications**: Toast notifications for all transactions
-- **Loading States**: Visual feedback for all user actions
-- **Error Handling**: Comprehensive error handling and user feedback
-- **Mobile Responsive**: Optimized for desktop and mobile devices
+![alt text](image.png)
+
 
 ### Dashboard Features
 - **Portfolio Overview**: Complete view of user's staking position
@@ -42,6 +40,10 @@ A modern, responsive React application for interacting with the STK staking smar
 ### Deployed Contracts (Sepolia)
 - **STK Token**: `0x7c37ca51E4e649A620E0BF2Fc67Fe5f57E6AB117`
 - **Staking Contract**: `0x37c9a4d8193A2F67C7eDa8a18136E9856cE4010a`
+
+## Live Link
+https://stakingdapp-by-akanimoh.vercel.app/
+
 
 ## 🚀 Getting Started
 
