@@ -201,6 +201,16 @@ export const STAKE_TOKEN_CONFIG = {
       type: "function",
     },
     {
+      inputs: [
+        { name: "to", type: "address" },
+        { name: "amount", type: "uint256" },
+      ],
+      name: "mint",
+      outputs: [],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+    {
       inputs: [],
       name: "decimals",
       outputs: [{ name: "", type: "uint8" }],

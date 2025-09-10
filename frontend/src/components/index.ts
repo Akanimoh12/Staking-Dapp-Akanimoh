@@ -5,3 +5,4 @@ export { WithdrawForm } from './WithdrawForm';
 export { RewardsSection } from './RewardsSection';
 export { EmergencyWithdraw } from './EmergencyWithdraw';
 export { UserStakePosition } from './UserStakePosition';
+export { Faucet } from './Faucet';
