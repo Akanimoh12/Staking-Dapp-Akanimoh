@@ -11,7 +11,7 @@ export const CHAIN_ID = 11155111; // Sepolia
 // Wagmi config
 export const config = getDefaultConfig({
   appName: 'Staking DApp',
-  projectId: 'YOUR_PROJECT_ID', // Replace with your WalletConnect project ID
+  projectId: 'PROJECT_ID_HERE', 
   chains: [sepolia],
   ssr: false,
 });

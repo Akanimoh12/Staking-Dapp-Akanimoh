@@ -23,10 +23,10 @@ function DashboardContent() {
   useContractEvents();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-100">
       <Header />
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-8">
         {/* Stats Overview */}
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-6">Dashboard Overview</h2>
@@ -62,6 +62,7 @@ function DashboardContent() {
             borderRadius: '12px',
             border: '1px solid #e5e7eb',
             padding: '12px 16px',
+            marginTop: '80px', // Account for sticky header
           },
           success: {
             style: {
