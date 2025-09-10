@@ -13,6 +13,7 @@ import {
   RewardsSection,
   EmergencyWithdraw,
   UserStakePosition,
+  Faucet,
 } from './components';
 import { useContractEvents } from './hooks/useStaking';
 
@@ -45,9 +46,18 @@ function DashboardContent() {
           <RewardsSection />
         </div>
 
-        {/* Emergency Section */}
-        <div className="max-w-2xl mx-auto">
-          <EmergencyWithdraw />
+        {/* Emergency Section & Faucet */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
+          <div className="w-full flex">
+            <div className="w-full">
+              <EmergencyWithdraw />
+            </div>
+          </div>
+          <div className="w-full flex">
+            <div className="w-full">
+              <Faucet />
+            </div>
+          </div>
         </div>
       </main>
 

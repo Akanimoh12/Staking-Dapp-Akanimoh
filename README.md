@@ -2,6 +2,9 @@
 
 A modern, responsive React application for interacting with the STK staking smart contracts on Ethereum Sepolia testnet.
 
+
+![alt text](image.png)
+
 ## 🚀 Features
 
 ### Core Functionality
@@ -11,6 +14,7 @@ A modern, responsive React application for interacting with the STK staking smar
 - **Withdrawals**: Withdraw staked tokens after lock period
 - **Rewards**: Claim accumulated staking rewards
 - **Emergency Withdraw**: Emergency withdrawal option with penalty
+- **Facet Claim for Testing**: You can mint tokens to test the application
 
 ### User Interface
 - **Real-time Notifications**: Toast notifications for all transactions
