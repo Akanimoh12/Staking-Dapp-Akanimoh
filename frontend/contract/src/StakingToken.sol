@@ -14,12 +14,10 @@ contract StakeToken is ERC20, Ownable {
         _mint(msg.sender, initialSupply * 10**decimals());
     }
     
-    // Function to mint more tokens
-    function mint(address to, uint256 amount) public onlyOwner {
+    function mint(address to, uint256 amount) public {
         _mint(to, amount);
     }
     
-    // Function to burn tokens
     function burn(uint256 amount) public {
         _burn(msg.sender, amount);
     }

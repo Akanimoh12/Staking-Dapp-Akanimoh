@@ -2,8 +2,8 @@ import { getDefaultConfig } from '@rainbow-me/rainbowkit';
 import { sepolia } from 'viem/chains';
 
 // Contract addresses
-export const STAKE_TOKEN_ADDRESS = "0x7c37ca51E4e649A620E0BF2Fc67Fe5f57E6AB117" as const;
-export const STAKING_CONTRACT_ADDRESS = "0x37c9a4d8193A2F67C7eDa8a18136E9856cE4010a" as const;
+export const STAKE_TOKEN_ADDRESS = "0xea9851dbbA3E6863830B65c16e0984AA5e9172D2" as const;
+export const STAKING_CONTRACT_ADDRESS = "0x94918fcD6D4b7052526C549fEB4CA2Cc64b3a1FC" as const;
 
 // Chain configuration
 export const CHAIN_ID = 11155111; // Sepolia

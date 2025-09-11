@@ -44,8 +44,8 @@ A modern, responsive React application for interacting with the STK staking smar
 ## 📱 Contract Integration
 
 ### Deployed Contracts (Sepolia)
-- **STK Token**: `0x7c37ca51E4e649A620E0BF2Fc67Fe5f57E6AB117`
-- **Staking Contract**: `0x37c9a4d8193A2F67C7eDa8a18136E9856cE4010a`
+- **STK Token**: `0xea9851dbbA3E6863830B65c16e0984AA5e9172D2`
+- **Staking Contract**: `0x94918fcD6D4b7052526C549fEB4CA2Cc64b3a1FC`
 
 ## 🚀 Getting Started
 
