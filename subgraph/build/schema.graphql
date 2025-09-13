@@ -1,0 +1,84 @@
+type StakingProtocol @entity(immutable: false) {
+  id: ID!
+  stakingContract: Bytes!
+  stakingToken: Bytes!
+  totalStaked: BigInt!
+  currentRewardRate: BigInt!
+  totalUsers: BigInt!
+  totalTransactions: BigInt!
+  createdAt: BigInt!
+  updatedAt: BigInt!
+}
+
+type User @entity(immutable: false) {
+  id: ID! # user address
+  address: Bytes!
+  totalStaked: BigInt!
+  totalRewardsClaimed: BigInt!
+  stakingPositions: [StakingPosition!]! @derivedFrom(field: "user")
+  transactions: [Transaction!]! @derivedFrom(field: "user")
+  createdAt: BigInt!
+  updatedAt: BigInt!
+  isActive: Boolean!
+}
+
+type StakingPosition @entity(immutable: false) {
+  id: ID! # user-timestamp or user-position-index
+  user: User!
+  amount: BigInt!
+  stakeTimestamp: BigInt!
+  lastRewardTimestamp: BigInt!
+  status: PositionStatus!
+  rewardsEarned: BigInt!
+  withdrawnAt: BigInt
+  emergencyWithdraw: Boolean!
+  penalty: BigInt
+}
+
+enum PositionStatus {
+  ACTIVE
+  WITHDRAWN
+  EMERGENCY_WITHDRAWN
+}
+
+type Transaction @entity(immutable: true) {
+  id: ID! # tx hash
+  user: User!
+  type: TransactionType!
+  amount: BigInt!
+  rewardRate: BigInt!
+  totalStaked: BigInt!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  txHash: Bytes!
+  penalty: BigInt # for emergency withdrawals
+  rewardsAccrued: BigInt # for withdrawals
+}
+
+enum TransactionType {
+  STAKE
+  WITHDRAW
+  CLAIM_REWARDS
+  EMERGENCY_WITHDRAW
+}
+
+type RewardRateUpdate @entity(immutable: true) {
+  id: ID! # block-logIndex
+  oldRate: BigInt!
+  newRate: BigInt!
+  totalStaked: BigInt!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+}
+
+type DailyStats @entity(immutable: false) {
+  id: ID! # date as YYYY-MM-DD
+  date: String!
+  totalStaked: BigInt!
+  averageRewardRate: BigInt!
+  activeUsers: BigInt!
+  newStakes: BigInt!
+  withdrawals: BigInt!
+  rewardsClaimed: BigInt!
+  volume: BigInt!
+}

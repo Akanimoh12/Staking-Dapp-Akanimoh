@@ -5,13 +5,6 @@ import { useState } from 'react';
 import { formatEther, parseEther } from 'viem';
 import toast from 'react-hot-toast';
 
-// Import new subgraph hooks
-import { 
-  useUserStakeHistory, 
-  useProtocolAnalytics, 
-  useTransactionHistory 
-} from './subgraph';
-
 // Types
 export interface UserDetails {
   stakedAmount: bigint;
@@ -28,18 +21,8 @@ export interface UserInfo {
   pendingRewards: bigint;
 }
 
-// Hook for reading user stake details - UPDATED TO USE SUBGRAPH
+// Hook for reading user stake details
 export function useUserStakeDetails() {
-  const { userDetails, isLoading, refetch } = useUserStakeHistory();
-  
-  return {
-    userDetails,
-    isLoading,
-    refetch,
-  };
-
-  // LEGACY CONTRACT READING CODE - COMMENTED OUT
-  /*
   const { address } = useAccount();
   
   const { data: userDetails, isLoading, refetch } = useReadContract({
@@ -57,10 +40,9 @@ export function useUserStakeDetails() {
     isLoading,
     refetch,
   };
-  */
 }
 
-// Hook for reading user token balance - KEEPING CONTRACT READING FOR REAL-TIME BALANCE
+// Hook for reading user token balance
 export function useTokenBalance() {
   const { address } = useAccount();
   
@@ -82,7 +64,7 @@ export function useTokenBalance() {
   };
 }
 
-// Hook for reading token allowance - KEEPING CONTRACT READING FOR REAL-TIME ALLOWANCE
+// Hook for reading token allowance
 export function useTokenAllowance() {
   const { address } = useAccount();
   
@@ -104,28 +86,8 @@ export function useTokenAllowance() {
   };
 }
 
-// Hook for reading contract stats - UPDATED TO USE SUBGRAPH
+// Hook for reading contract stats
 export function useContractStats() {
-  const { 
-    totalStaked, 
-    formattedTotalStaked, 
-    currentRewardRate, 
-    formattedApr, 
-    isLoading, 
-    refetch 
-  } = useProtocolAnalytics();
-
-  return {
-    totalStaked,
-    formattedTotalStaked,
-    currentRewardRate,
-    formattedApr,
-    isLoading,
-    refetch,
-  };
-
-  // LEGACY CONTRACT READING CODE - COMMENTED OUT
-  /*
   const { data: totalStaked, isLoading: totalStakedLoading, refetch: refetchTotalStaked } = useReadContract({
     ...STAKING_CONTRACT_CONFIG,
     functionName: 'totalStaked',
@@ -153,7 +115,6 @@ export function useContractStats() {
       refetchRewardRate();
     },
   };
-  */
 }
 
 // Hook for staking operations
@@ -279,15 +240,11 @@ export function useTokenApproval() {
   };
 }
 
-// Hook for listening to contract events - UPDATED TO USE SUBGRAPH + REAL-TIME EVENTS
+// Hook for listening to contract events
 export function useContractEvents() {
   const { address } = useAccount();
   const [events, setEvents] = useState<any[]>([]);
-  
-  // Get historical events from subgraph
-  const { events: historicalEvents } = useTransactionHistory();
 
-  // Still listen to real-time events for immediate toast notifications
   // Listen to Staked events
   useWatchContractEvent({
     ...STAKING_CONTRACT_CONFIG,
@@ -344,10 +301,5 @@ export function useContractEvents() {
     },
   });
 
-  // Combine real-time events with historical events from subgraph
-  return { 
-    events: [...historicalEvents, ...events],
-    recentEvents: events, // Just the real-time events for toast notifications
-    historicalEvents, // Historical events from subgraph
-  };
+  return { events };
 }
